@@ -1,76 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Student Planner Hub :: Calendar</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+<title>PlanU :: Calendar</title>
+<meta charset="utf-8">
+<meta name="description" content="PlanU calendar helps students organize assignments, quizzes, projects, and important academic deadlines.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
+
+<header>
+<h1><a href="index.html">PlanU</a></h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="assignments.html">Assignments</a></li>
+<li><a href="study.html">Study Tools</a></li>
+<li><a href="calendar.html">Calendar</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
 
 <div id="wrapper">
 
-    <header>
-        <h1>Student Planner Hub</h1>
-        <p>Stay organized. Study smarter. Plan ahead.</p>
-    </header>
+<div id="calendarhero"></div>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="assignments.html">Assignments</a></li>
-            <li><a href="studytools.html">Study Tools</a></li>
-            <li><a href="calendar.html" class="active">Calendar</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<main>
 
-    <main>
-        <section class="hero">
-            <h2>Calendar</h2>
-            <p>Stay on top of your schedule by planning out your week.</p>
-        </section>
+<h2>Calendar</h2>
 
-        <section class="cards">
-            <div class="card">
-                <h3>Monday</h3>
-                <p>Math class at 9:00 AM</p>
-                <p>Essay outline due</p>
-            </div>
+<p>
+The PlanU calendar represents how assignments entered into the planner can be organized by date.
+Students can add a sample task below to see how PlanU would place assignments into a calendar schedule.
+</p>
 
-            <div class="card">
-                <h3>Tuesday</h3>
-                <p>Study for quiz</p>
-                <p>Programming lab at 2:00 PM</p>
-            </div>
+<div class="planner-box">
+<h3>Add a Task to the Calendar</h3>
 
-            <div class="card">
-                <h3>Wednesday</h3>
-                <p>Group meeting</p>
-                <p>Work on project draft</p>
-            </div>
+<form id="calendarForm">
+<label for="calendarDate">Date:</label>
+<input type="date" id="calendarDate" name="calendarDate" required>
 
-            <div class="card">
-                <h3>Thursday</h3>
-                <p>History discussion due</p>
-                <p>Review notes for exam</p>
-            </div>
+<label for="calendarTask">Task:</label>
+<input type="text" id="calendarTask" name="calendarTask" placeholder="Example: Essay Draft Due" required>
 
-            <div class="card">
-                <h3>Friday</h3>
-                <p>Turn in math homework</p>
-                <p>Prepare for next week</p>
-            </div>
-        </section>
-    </main>
+<label for="calendarClass">Class:</label>
+<input type="text" id="calendarClass" name="calendarClass" placeholder="Example: English" required>
 
-    <footer>
-        <p>&copy; 2026 Student Planner Hub</p>
-    </footer>
+<input type="button" value="Add to Calendar" onclick="addToCalendar()">
+</form>
+</div>
+
+<section>
+<h3>Upcoming Academic Schedule</h3>
+
+<table id="calendarTable">
+<tr>
+<th>Date</th>
+<th>Task</th>
+<th>Class</th>
+</tr>
+
+<tr>
+<td>May 10</td>
+<td>Essay Draft Due</td>
+<td>English</td>
+</tr>
+
+<tr>
+<td>May 12</td>
+<td>Website Project Check</td>
+<td>Web Design</td>
+</tr>
+
+<tr>
+<td>May 15</td>
+<td>Quiz Review</td>
+<td>Study Skills</td>
+</tr>
+
+<tr>
+<td>May 18</td>
+<td>Flashcard Review Session</td>
+<td>Biology</td>
+</tr>
+
+<tr>
+<td>May 20</td>
+<td>Final Exam Preparation</td>
+<td>Math</td>
+</tr>
+</table>
+</section>
+
+<section>
+<h3>Benefits of Staying Organized</h3>
+
+<p>
+Using a digital calendar helps students avoid missing deadlines and manage their time more effectively.
+Students can prepare for assignments earlier, balance school responsibilities, and create better study habits throughout the semester.
+</p>
+</section>
+
+</main>
+<table>
+<tr>
+<th>Day</th>
+<th>Course</th>
+<th>Assignment</th>
+<th>Due Date</th>
+</tr>
+
+<tr>
+<td>Monday</td>
+<td>SDEV 153</td>
+<td>HTML Project</td>
+<td>May 15</td>
+</tr>
+
+<tr>
+<td>Tuesday</td>
+<td>English</td>
+<td>Annotated Bibliography</td>
+<td>May 16</td>
+</tr>
+
+<tr>
+<td>Wednesday</td>
+<td>Math</td>
+<td>Quiz Review</td>
+<td>May 17</td>
+</tr>
+
+<tr>
+<td>Thursday</td>
+<td>Speech</td>
+<td>Presentation Outline</td>
+<td>May 18</td>
+</tr>
+
+<tr>
+<td>Friday</td>
+<td>Biology</td>
+<td>Lab Submission</td>
+<td>May 19</td>
+</tr>
+</table>
+<footer>
+Copyright © 2026 PlanU<br>
+<a href="mailto:madison@dowden.com">madison@dowden.com</a>
+</footer>
 
 </div>
+
+<script>
+function addToCalendar() {
+    var date = document.getElementById("calendarDate").value;
+    var task = document.getElementById("calendarTask").value;
+    var className = document.getElementById("calendarClass").value;
+
+    if (date === "" || task === "" || className === "") {
+        alert("Please fill out all calendar fields.");
+        return;
+    }
+
+    var table = document.getElementById("calendarTable");
+    var newRow = table.insertRow(-1);
+
+    var dateCell = newRow.insertCell(0);
+    var taskCell = newRow.insertCell(1);
+    var classCell = newRow.insertCell(2);
+
+    dateCell.innerHTML = date;
+    taskCell.innerHTML = task;
+    classCell.innerHTML = className;
+
+    alert("This task has been added to the PlanU calendar.");
+
+    document.getElementById("calendarForm").reset();
+}
+</script>
 
 </body>
 </html>

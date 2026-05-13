@@ -1,59 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Student Planner Hub :: Contact</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+<title>PlanU :: Contact</title>
+<meta charset="utf-8">
+<meta name="description" content="Contact PlanU for questions, feedback, feature suggestions, or student support information.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
+
+<header>
+<h1><a href="index.html">PlanU</a></h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="assignments.html">Assignments</a></li>
+<li><a href="study.html">Study Tools</a></li>
+<li><a href="calendar.html">Calendar</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
 
 <div id="wrapper">
 
-    <header>
-        <h1>Student Planner Hub</h1>
-        <p>Stay organized. Study smarter. Plan ahead.</p>
-    </header>
+<div id="contacthero"></div>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="assignments.html">Assignments</a></li>
-            <li><a href="studytools.html">Study Tools</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-    </nav>
+<main>
 
-    <main>
-        <section class="hero">
-            <h2>Contact</h2>
-            <p>If you have questions or feedback, fill out the form below.</p>
-        </section>
+<h2>Contact PlanU</h2>
 
-        <section class="form-section">
-            <form action="#" method="post">
-                <label for="myName">Name:</label>
-                <input type="text" name="myName" id="myName">
+<p>
+If you have questions, feedback, or suggestions about PlanU, please complete the contact form below.
+This page demonstrates how forms can collect user information and display a preview using JavaScript.
+</p>
 
-                <label for="myEmail">Email:</label>
-                <input type="email" name="myEmail" id="myEmail">
+<div class="planner-box">
 
-                <label for="myMessage">Message:</label>
-                <textarea name="myMessage" id="myMessage" rows="5" cols="30"></textarea>
+<div class="assignment-layout">
 
-                <input type="submit" value="Send">
-            </form>
-        </section>
-    </main>
+<div class="assignment-form">
 
-    <footer>
-        <p>&copy; 2026 Student Planner Hub</p>
-    </footer>
+<form id="contactForm" method="post" action="https://webdevbasics.net/scripts/demo.php">
+
+<label for="myName">Full Name:</label>
+<input type="text" id="myName" name="myName" required>
+
+<label for="myEmail">Email Address:</label>
+<input type="email" id="myEmail" name="myEmail" required>
+
+<label for="mySchool">School:</label>
+<input type="text" id="mySchool" name="mySchool">
+
+<label for="myClass">Class or Major:</label>
+<input type="text" id="myClass" name="myClass">
+
+<label for="myYear">Student Year:</label>
+<select id="myYear" name="myYear">
+<option value="Freshman">Freshman</option>
+<option value="Sophomore">Sophomore</option>
+<option value="Junior">Junior</option>
+<option value="Senior">Senior</option>
+<option value="Graduate Student">Graduate Student</option>
+</select>
+
+<label for="myReason">Reason for Contact:</label>
+<select id="myReason" name="myReason">
+<option value="General Question">General Question</option>
+<option value="Assignment Help">Assignment Help</option>
+<option value="Study Tool Feedback">Study Tool Feedback</option>
+<option value="Calendar Support">Calendar Support</option>
+<option value="Technical Issue">Technical Issue</option>
+<option value="Feature Suggestion">Feature Suggestion</option>
+</select>
+
+<p><strong>Features You Use Most:</strong></p>
+
+<input type="checkbox" id="assignmentsFeature" name="features" value="Assignments">
+<label for="assignmentsFeature">Assignments</label>
+
+<input type="checkbox" id="calendarFeature" name="features" value="Calendar">
+<label for="calendarFeature">Calendar</label>
+
+<input type="checkbox" id="studyFeature" name="features" value="Study Tools">
+<label for="studyFeature">Study Tools</label>
+
+<input type="checkbox" id="resourcesFeature" name="features" value="Resources">
+<label for="resourcesFeature">Resources</label>
+
+<label for="myComments">Comments or Suggestions:</label>
+<textarea id="myComments" name="myComments" rows="5" cols="30"></textarea>
+
+<input type="button" value="Submit Form" onclick="submitContactForm()">
+
+</form>
 
 </div>
+
+<div class="assignment-preview">
+
+<div id="contactOutput">
+<p>Submit the form to see your information preview here.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+Copyright © 2026 PlanU<br>
+<a href="mailto:madison@dowden.com">madison@dowden.com</a>
+</footer>
+
+</div>
+
+<script>
+function submitContactForm() {
+
+    var name = document.getElementById("myName").value;
+    var email = document.getElementById("myEmail").value;
+    var school = document.getElementById("mySchool").value;
+    var studentClass = document.getElementById("myClass").value;
+    var year = document.getElementById("myYear").value;
+    var reason = document.getElementById("myReason").value;
+    var comments = document.getElementById("myComments").value;
+
+    var featureBoxes = document.querySelectorAll('input[name="features"]:checked');
+    var features = "";
+
+    for (var i = 0; i < featureBoxes.length; i++) {
+        features += featureBoxes[i].value;
+
+        if (i < featureBoxes.length - 1) {
+            features += ", ";
+        }
+    }
+
+    if (features === "") {
+        features = "No features selected";
+    }
+
+    if (name === "" || email === "") {
+        alert("Please complete the required fields.");
+        return;
+    }
+
+    document.getElementById("contactOutput").innerHTML =
+        "<h3>Submission Preview</h3>" +
+        "<p><strong>Name:</strong> " + name + "</p>" +
+        "<p><strong>Email:</strong> " + email + "</p>" +
+        "<p><strong>School:</strong> " + school + "</p>" +
+        "<p><strong>Class/Major:</strong> " + studentClass + "</p>" +
+        "<p><strong>Student Year:</strong> " + year + "</p>" +
+        "<p><strong>Reason for Contact:</strong> " + reason + "</p>" +
+        "<p><strong>Features Used Most:</strong> " + features + "</p>" +
+        "<p><strong>Comments:</strong> " + comments + "</p>" +
+        "<p><strong>Status:</strong> Information successfully submitted to the PlanU demo system.</p>";
+
+    document.getElementById("contactForm").reset();
+}
+</script>
 
 </body>
 </html>

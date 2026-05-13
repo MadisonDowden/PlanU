@@ -1,70 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Student Planner Hub :: Assignments</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+<title>PlanU :: Assignments</title>
+<meta charset="utf-8">
+<meta name="description" content="PlanU helps students enter, organize, and track assignments by class, due date, and priority.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
+
+<header>
+<h1><a href="index.html">PlanU</a></h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="assignments.html">Assignments</a></li>
+<li><a href="study.html">Study Tools</a></li>
+<li><a href="calendar.html">Calendar</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
 
 <div id="wrapper">
 
-    <header>
-        <h1>Student Planner Hub</h1>
-        <p>Stay organized. Study smarter. Plan ahead.</p>
-    </header>
+<div id="assignhero"></div>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="assignments.html" class="active">Assignments</a></li>
-            <li><a href="studytools.html">Study Tools</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<main>
+<h2>Assignments</h2>
 
-    <main>
-        <section class="hero">
-            <h2>Assignments</h2>
-            <p>Use this page to keep up with your classwork and important deadlines.</p>
-        </section>
+<p>
+PlanU is designed to help students enter all of their assignments in one place.
+The planner can organize assignments by class, due date, and priority so students
+can stay ahead of their coursework and avoid missing important deadlines.
+</p>
 
-        <section class="cards">
-            <div class="card">
-                <h3>English Essay</h3>
-                <p>Draft due: April 25</p>
-                <p>Status: In Progress</p>
-            </div>
+<div class="planner-box">
+<h3>Assignment Organizer Demo</h3>
 
-            <div class="card">
-                <h3>Math Homework</h3>
-                <p>Due: April 22</p>
-                <p>Status: Not Started</p>
-            </div>
+<div class="assignment-layout">
 
-            <div class="card">
-                <h3>Programming Project</h3>
-                <p>Due: April 28</p>
-                <p>Status: Almost Done</p>
-            </div>
+<div class="assignment-form">
+<form id="assignmentForm">
 
-            <div class="card">
-                <h3>History Discussion</h3>
-                <p>Due: April 24</p>
-                <p>Status: Completed</p>
-            </div>
-        </section>
-    </main>
+<label for="assignmentName">Assignment Name:</label>
+<input type="text" id="assignmentName" name="assignmentName" placeholder="Example: English Essay Draft" required>
 
-    <footer>
-        <p>&copy; 2026 Student Planner Hub</p>
-    </footer>
+<label for="className">Class:</label>
+<input type="text" id="className" name="className" placeholder="Example: English 111" required>
+
+<label for="dueDate">Due Date:</label>
+<input type="date" id="dueDate" name="dueDate" required>
+
+<label for="priority">Priority:</label>
+<select id="priority" name="priority">
+<option value="High">High</option>
+<option value="Medium">Medium</option>
+<option value="Low">Low</option>
+</select>
+
+<input type="button" value="Organize Assignment" onclick="organizeAssignment()">
+
+</form>
+</div>
+
+<div class="assignment-preview">
+<div id="assignmentOutput">
+<p>Enter an assignment on the left to see how PlanU organizes it.</p>
+</div>
+</div>
 
 </div>
+</div>
+
+</main>
+
+<footer>
+Copyright © 2026 PlanU<br>
+<a href="mailto:madison@dowden.com">madison@dowden.com</a>
+</footer>
+
+</div>
+
+<script>
+function organizeAssignment() {
+    var assignmentName = document.getElementById("assignmentName").value;
+    var className = document.getElementById("className").value;
+    var dueDate = document.getElementById("dueDate").value;
+    var priority = document.getElementById("priority").value;
+
+    if (assignmentName === "" || className === "" || dueDate === "") {
+        alert("Please fill out all assignment fields.");
+        return;
+    }
+
+    document.getElementById("assignmentOutput").innerHTML =
+        "<h4>Organized Assignment Preview</h4>" +
+        "<p><strong>Assignment:</strong> " + assignmentName + "</p>" +
+        "<p><strong>Class:</strong> " + className + "</p>" +
+        "<p><strong>Due Date:</strong> " + dueDate + "</p>" +
+        "<p><strong>Priority:</strong> " + priority + "</p>" +
+        "<p><strong>Calendar Status:</strong> This assignment would be added to your PlanU calendar.</p>";
+}
+</script>
 
 </body>
 </html>
